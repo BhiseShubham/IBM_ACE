@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <input path="/AggregateInputfile.xsd"/>
+    <output path="/AggregateInputfile.xsd"/>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="AggregateNode_MF_Mapping1">
+        <input path="mb:msg(OverallInputMessage,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_OverallInputMessage"/>
+        <output path="mb:msg(OverallInputMessage,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_OverallInputMessage1"/>
+        <move>
+            <input path="$ComIbmMessageAssembly_OverallInputMessage/Properties"/>
+            <output path="$ComIbmMessageAssembly_OverallInputMessage1/Properties"/>
+        </move>
+        <move>
+            <input path="$ComIbmMessageAssembly_OverallInputMessage/OverallInputMessage/Field2"/>
+            <output path="$ComIbmMessageAssembly_OverallInputMessage1/OverallInputMessage/Field2"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>
