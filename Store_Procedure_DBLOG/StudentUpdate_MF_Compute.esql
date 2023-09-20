@@ -1,0 +1,28 @@
+
+
+CREATE COMPUTE MODULE StudentUpdate_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+    CREATE PROCEDURE CopyEntireMessage() BEGIN
+ 	DECLARE InRef REFERENCE TO InputRoot.XMLNSC.Student;
+ 	
+ 	DECLARE S_ID INTEGER;
+ 	DECLARE S_Place CHARACTER;
+ 	
+ 	SET S_ID = InRef.ID;
+ 	SET S_Place = InRef.PLACE;
+ 	
+ 	SET OutputRoot.JSON.Data.Student.ID = S_ID;
+ 	SET  OutputRoot.JSON.Data.Student.PLACE = S_Place;
+ 	
+ 	CALL UPDATE(S_ID,S_Place);
+	END;
+    END MODULE;
+    CREATE PROCEDURE  UPDATE(IN S_ID INTEGER,IN S_Place CHARACTER  )
+    LANGUAGE DATABASE
+    EXTERNAL NAME "STUDENT_UPDATE";
+
