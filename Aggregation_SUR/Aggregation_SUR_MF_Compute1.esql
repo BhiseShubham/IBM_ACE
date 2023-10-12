@@ -1,6 +1,6 @@
 
 
-CREATE COMPUTE MODULE SUR_Backend1_Compute
+CREATE COMPUTE MODULE Aggregation_SUR_MF_Compute1
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		-- CALL CopyMessageHeaders();
@@ -21,16 +21,12 @@ CREATE COMPUTE MODULE SUR_Backend1_Compute
 	CREATE PROCEDURE CopyEntireMessage() BEGIN
 		DECLARE inRef REFERENCE TO InputRoot.XMLNSC.CustomerDetails.AadharNumber;
 		IF inRef = 860 THEN
-			SET OutputRoot.XMLNSC.AadharDetails.MobileNumber=9665787011;
-			SET OutputRoot.XMLNSC.AadharDetails.Address='Nashik';
-			SET OutputRoot.XMLNSC.AadharDetails.PinCode=424001;
-			SET OutputRoot.XMLNSC.AadharDetails.State='Maharastra';
+			SET OutputRoot.XMLNSC.CustomerDetails.AadharNumber=inRef;
+			
 			
 		ELSE
 			
 		END IF;
-		
-		
 		
 	END;
 END MODULE;

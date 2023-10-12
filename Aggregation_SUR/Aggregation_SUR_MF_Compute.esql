@@ -20,7 +20,7 @@ CREATE COMPUTE MODULE Aggregation_SUR_MF_Compute
 
 	CREATE PROCEDURE CopyEntireMessage() BEGIN
 		--SET OutputRoot = InputRoot;
-			SET OutputRoot.XMLNSC.Root.Student = InputRoot.ComIbmAggregateReplyBody.Folder1[1].XMLNSC.Root.Student;
-            SET OutputRoot.XMLNSC.Root.Employee = InputRoot.ComIbmAggregateReplyBody.Folder2[1].XMLNSC.Root.Employee;
+			SET OutputRoot.XMLNSC.Result.AadharInformation = InputRoot.ComIbmAggregateReplyBody.Folder1[1].XMLNSC.AadharDetails;
+            SET OutputRoot.XMLNSC.Result.PanInformation = InputRoot.ComIbmAggregateReplyBody.Folder2[1].XMLNSC.PanDetails;
 	END;
 END MODULE;

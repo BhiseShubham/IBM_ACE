@@ -19,7 +19,15 @@ CREATE COMPUTE MODULE SUR_Backend2_Compute
 	END;
 
 	CREATE PROCEDURE CopyEntireMessage() BEGIN
-			SET OutputRoot.XMLNSC.Root.Employee.Name='Ram';
-		    SET OutputRoot.XMLNSC.Root.Employee.ID =1;
+		DECLARE inRef REFERENCE TO InputRoot.XMLNSC.CustomerDetails.PanNumber;
+		IF inRef = 863 THEN
+			SET OutputRoot.XMLNSC.PanDetails.MobileNumber=5565655;
+			SET OutputRoot.XMLNSC.PanDetails.Address='Mumbai';
+			SET OutputRoot.XMLNSC.PanDetails.PinCode=424001;
+			SET OutputRoot.XMLNSC.PanDetails.State='Maharastra';
+			
+		ELSE
+			
+		END IF;
 	END;
 END MODULE;
