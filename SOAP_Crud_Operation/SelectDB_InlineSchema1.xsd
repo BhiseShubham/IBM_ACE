@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/SelectDB/" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/SelectDB/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <xsd:element ibmSchExtn:docRoot="true" name="NewOperation">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="ID" type="xsd:int"/>
+          	<xsd:element name="PLACE" type="xsd:string"/>
+          	<xsd:element name="NAME" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element ibmSchExtn:docRoot="true" name="NewOperationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="EID" type="xsd:int"/>
+          	<xsd:element name="EPLACE" type="xsd:string"/>
+          	<xsd:element name="ENAME" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
