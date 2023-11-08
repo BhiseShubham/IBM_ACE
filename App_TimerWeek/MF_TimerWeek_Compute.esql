@@ -1,0 +1,35 @@
+
+
+CREATE COMPUTE MODULE MF_TimerWeek_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		DECLARE dayy INTEGER EXTRACT(DAYOFWEEK from CURRENT_DATE);
+		DECLARE cuTime INTEGER EXTRACT(HOUR FROM CURRENT_TIMESTAMP);
+		if (dayy = 4 or dayy = 7) OR (cuTime < 7 OR cuTime > 16)then
+			
+			RETURN FALSE;
+
+		else
+			SET OutputRoot = InputRoot;
+			SET OutputLocalEnvironment.TimeoutRequest.Action='SET';
+			SET OutputLocalEnvironment.TimeoutRequest.Identifier='timerWeek';
+
+			SET OutputLocalEnvironment.TimeoutRequest.StartDate='TODAY';
+
+			SET OutputLocalEnvironment.TimeoutRequest.StartTime='14:39:00';
+			SET OutputLocalEnvironment.TimeoutRequest.Interval=10;
+
+
+			SET OutputLocalEnvironment.TimeoutRequest.Count=(11*60*60)/10;
+
+			SET OutputLocalEnvironment.TimeoutRequest.IgnoreMissed=FALSE;
+
+			SET OutputLocalEnvironment.TimeoutRequest.AllowOverwrite=TRUE;
+
+		end if;				
+	
+
+	END;
+	
+END MODULE;
