@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmCompute.msgnode="ComIbmCompute.msgnode" xmlns:ComIbmMQInput.msgnode="ComIbmMQInput.msgnode" xmlns:ComIbmMQReply.msgnode="ComIbmMQReply.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="MF_AccountService_Router.msgflow" nsPrefix="MF_AccountService_Router.msgflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1" nodeLayoutStyle="SQUARE">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.AccountService_Q" name="AccountService_Q" defaultValueLiteral="AccountDetailsServiceInputQ">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.Invalid_Req" name="Invalid_Req" defaultValueLiteral="InvalidQ">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <translation xmi:type="utility:TranslatableString" key="MF_AccountService_Router" bundleName="MF_AccountService_Router" pluginId="App_AccountService"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/App_AccountService/icons/full/obj16/MF_AccountService_Router.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/App_AccountService/icons/full/obj30/MF_AccountService_Router.gif"/>
+    <composition>
+      <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_7" location="49,81" queueName="ServiceInput" destinationQueueManagerName="AccountServiceMGR" messageDomainProperty="JSON" securityProfileName="{BasicAuth_Policy}:AuthPolicy" identityType="usernameAndPassword" identityTokenLocation="$Root/MQRFH2/usr/uname" identityPasswordLocation="$Root/MQRFH2/usr/password">
+        <translation xmi:type="utility:ConstantString" string="MQ ChannelInputService"/>
+      </nodes>
+      <nodes xmi:type="ComIbmMQReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="374,81" destinationQueueManagerName="AccountServiceMGR">
+        <translation xmi:type="utility:ConstantString" string="MQ Reply"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="208,80" dataSource="DBDSN" computeExpression="esql://routine/#MF_AccountService_Consumer_Compute.Main">
+        <translation xmi:type="utility:ConstantString" string="Compute"/>
+      </nodes>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_7" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_1" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_7" sourceTerminalName="OutTerminal.failure" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_7" sourceTerminalName="OutTerminal.catch" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.AccountService_Q">
+        <propertyName xmi:type="utility:TranslatableString" key="Property.AccountService_Q" bundleName="MF_AccountService_Router" pluginId="App_AccountService"/>
+        <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.Invalid_Req">
+          <propertyName xmi:type="utility:TranslatableString" key="Property.Invalid_Req" bundleName="MF_AccountService_Router" pluginId="App_AccountService"/>
+        </propertyDescriptor>
+      </propertyDescriptor>
+    </propertyOrganizer>
+    <stickyBoard>
+      <stickyNote location="83,9">
+        <body xmi:type="utility:ConstantString" string="Based On the Channel Input it will Invoke the Bussiness Flow"/>
+      </stickyNote>
+    </stickyBoard>
+  </eClassifiers>
+</ecore:EPackage>

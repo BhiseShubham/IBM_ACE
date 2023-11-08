@@ -1,0 +1,69 @@
+
+ DECLARE AccountService_Q EXTERNAL CHARACTER '';
+ DECLARE Invalid_Req EXTERNAL CHARACTER '';
+CREATE COMPUTE MODULE MF_AccountService_Consumer_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		  
+		    DECLARE dataPresent BOOLEAN;
+		
+      
+			
+			DECLARE inRef REFERENCE TO InputRoot.JSON.Data;
+			DECLARE query CHARACTER;
+			SET  query = 'SELECT QUEUE_NAME,APP_NAME FROM APP_DETAILS Where APP_NAME=?';
+	    	SET Environment.Response.Details[] = PASSTHRU(query VALUES ( FIELDNAME(inRef.[>])));
+
+
+				IF FIELDNAME(inRef.[>]) = Environment.Response.Details.APP_NAME THEN
+					-- make into true
+					SET dataPresent = TRUE;
+					
+					SET OutputRoot = InputRoot;
+					SET OutputRoot.MQMD.CorrelId = InputRoot.MQMD.MsgId;
+					SET OutputRoot.MQMD.ReplyToQ = Environment.Response.Details.QUEUE_NAME;
+					
+					
+				ELSE
+					-- make booken var to false
+					SET dataPresent = FALSE;
+					SET OutputRoot.JSON.Data.Description = 'Invalid Request';
+					SET OutputRoot.MQMD.ReplyToQ =Invalid_Req;
+					
+				END IF;
+				
+				--if boolean variable value is true then logg with message data as Authentication is success|| 'message'
+				 DECLARE appname,msgflow_name,channel_req,QueName,mybroker,Msg_Id,request CHARACTER;
+				 DECLARE time_stamp CHARACTER;
+				 
+		    	
+			    DECLARE blobdata1 BLOB;
+			    
+				IF  dataPresent = true THEN
+				SET appname = ApplicationLabel;
+		    	SET msgflow_name = MessageFlowLabel;
+	            SET mybroker = BrokerName;
+	            SET Msg_Id = InputRoot.MQMD.MsgId;
+	            SET QueName =  Environment.Response.Details.QUEUE_NAME;
+			    SET time_stamp = CAST(CURRENT_TIMESTAMP  as CHARACTER);	
+			    SET blobdata1 = ASBITSTREAM (InputRoot.JSON.Data ENCODING 546 CCSID 1208);
+			    SET request = CAST(blobdata1 AS CHARACTER CCSID 1208);
+			    
+				CALL DB_ROUTER(appname,msgflow_name,mybroker,Msg_Id,QueName,time_stamp,request);
+	
+					
+				END IF;
+				
+	END;
+CREATE  PROCEDURE DB_ROUTER(IN appname CHARACTER ,IN msgflow_name CHARACTER ,IN mybroker CHARACTER ,IN Msg_Id CHARACTER,IN QueName CHARACTER,IN time_stamp CHARACTER,IN request CHARACTER )
+LANGUAGE DATABASE
+EXTERNAL NAME "ROUTER_FLOW" ;
+END MODULE;
