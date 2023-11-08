@@ -1,0 +1,28 @@
+
+
+CREATE COMPUTE MODULE MF_ContinueHandler_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+        DECLARE CONTINUE HANDLER FOR SQLSTATE LIKE'%' BEGIN END;
+	    DECLARE stmt1 CHARACTER;
+        DECLARE stmt2 CHARACTER;
+        DECLARE stmt3 CHARACTER;
+        
+
+	    SET stmt1 = 'DROP TABLE SYSTEM.SHOP';
+	    PASSTHRU stmt1 TO Database.DBDSN;
+	    SET stmt2 = 'DROP TABLE SYSTEM.Invoices';
+	    PASSTHRU stmt2 TO Database.DBDSN;
+	    SET stmt3 = 'DROP TABLE SYSTEM.SHOPTABLE';
+	    PASSTHRU stmt3 TO Database.DBDSN;
+	  
+	END;
+END MODULE;
