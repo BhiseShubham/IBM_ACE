@@ -1,0 +1,93 @@
+
+
+
+
+CREATE COMPUTE MODULE Dummy_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;	
+
+
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN		
+
+
+		DECLARE InRef INTEGER  InputRoot.XMLNSC.Get_Acct_Info_Req.Cb_Acct_Id;
+		IF InRef= '000400911736' THEN				
+
+
+			DECLARE Get_Acct_Info_Resp ,Account_InfoRef,Currency_InfoRef,Category_InfoRef,Account_NameRef,OwnerRef,Main_HolderRef,Joint_Holder_ListRef,Joint_Holder_Item_tRef,Alt_Id_ItemRef REFERENCE TO OutputRoot.XMLNSC;
+			CREATE LASTCHILD OF OutputRoot.XMLNSC AS Get_Acct_Info_Resp NAME 'Get_Acct_Info_Resp';
+			CREATE LASTCHILD OF Get_Acct_Info_Resp AS Account_InfoRef NAME 'Account_Info';
+			SET Account_InfoRef.Cb_Online_Sysdate='20201217';
+			SET Account_InfoRef.Cb_Acct_No='000446176796';
+
+			SET Account_InfoRef.Alt_Id_Item[1].Alt_Id_Type = 'LEGACY';
+			SET Account_InfoRef.Alt_Id_Item[1].Alt_Id = '';
+			SET Account_InfoRef.Alt_Id_Item[2].Alt_Id_Type = 'IBAN';
+			SET Account_InfoRef.Alt_Id_Item[2].Alt_Id = 'MU95MCBL0944000446176796000USD';
+			SET Account_InfoRef.Alt_Id_Item[3].Alt_Id_Type = 'NONMCB';
+			SET Account_InfoRef.Alt_Id_Item[3].Alt_Id = '';
+				     
+			--CREATE LASTCHILD OF Account_InfoRef AS Category_InfoRef NAME 'Category_Info';				     
+
+
+			SET Account_InfoRef.Category_Info.Category='1002';
+			SET Account_InfoRef.Category_Info.Category_Desc ='Current Account';
+			SET Account_InfoRef.Category_Info.Category_Desc4cust ='Current Account';
+			SET Account_InfoRef.Category_Info.Product_Type ='CB-CASA-CUR';			
+
+
+		--	CREATE LASTCHILD OF Account_InfoRef AS Currency_InfoRef NAME'Currency_Info';
+
+			SET Account_InfoRef.Currency_Info.Currency = 'USD';
+			SET Account_InfoRef.Currency_Info.Currency_Desc = 'United States Dollars Dollar US';
+
+			--CREATE LASTCHILD OF Account_InfoRef AS Account_NameRef NAME ' Account_Name';
+			SET Account_InfoRef.Account_Name.Short_Title ='Sh-title 000446176796';
+			SET Account_InfoRef.Account_Name.Account_Title_1 ='Title-1 000446176796';
+			SET Account_InfoRef.Account_Name.Account_Title_2 ='';
+
+			SET Account_InfoRef.Opening_Date='20180622';
+			SET Account_InfoRef.Co_Code='MU0010044';
+			SET Account_InfoRef.Company_Name='MCB PORT LOUIS';
+			SET Account_InfoRef.Inactiv_Marker='';
+			SET Account_InfoRef.Esc_Status='';
+			SET Account_InfoRef.Closure_Date='20180622';
+			SET Account_InfoRef.Acct_Status='ACTIVE';
+			SET Account_InfoRef.Is_Staff_Acct='N';
+			SET Account_InfoRef.Contentieux_Sts='N';
+
+--			CREATE LASTCHILD OF Account_InfoRef AS OwnerRef NAME'Owner';
+--			CREATE LASTCHILD OF OwnerRef AS Main_HolderRef NAME 'Main_Holder';
+--			CREATE LASTCHILD OF OwnerRef AS Joint_Holder_ListRef NAME 'Joint_Holder_List';
+--			CREATE LASTCHILD OF Joint_Holder_ListRef AS Joint_Holder_Item_tRef NAME 'Joint_Holder_Item_';
+
+			SET Account_InfoRef.Owner.Main_Holder.Customer='1045430';
+			SET Account_InfoRef.Owner.Main_Holder.Short_Name='SH.NAME';
+			SET Account_InfoRef.Owner.Main_Holder.Sector='3000';
+			SET Account_InfoRef.Owner.Main_Holder.Sector_Desc='CORPORATE';
+			SET Account_InfoRef.Owner.Main_Holder.Target='3014';
+			SET Account_InfoRef.Owner.Main_Holder.Target_Desc='ENERGY & COMMODITIES';
+			SET Account_InfoRef.Owner.Main_Holder.Is_Individual='N';
+			SET Account_InfoRef.Owner.Main_Holder.Is_Minor='';		
+
+
+			SET Account_InfoRef.Owner.Joint_Holder_List.Joint_Holder_Item_.Joint_Holder='';
+			SET Account_InfoRef.Owner.Joint_Holder_List.Joint_Holder_Item_.Short_Name='';
+			SET Account_InfoRef.Owner.Joint_Holder_List.Joint_Holder_Item_.Relation_Code='';
+			SET Account_InfoRef.Owner.Joint_Holder_List.Joint_Holder_Item_.Relation_Code_Desc='';
+			SET Account_InfoRef.Owner.Joint_Holder_List.Joint_Holder_Item_.Joint_Notes='';			
+				
+				
+
+
+		ELSE
+			SET OutputRoot.XMLNSC.Error='Data Not Found';
+		END IF;
+
+	END;
+END MODULE;
