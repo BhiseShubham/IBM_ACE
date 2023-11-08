@@ -1,0 +1,38 @@
+
+DECLARE a NAMESPACE 'http://www.w3.org/TR/html4/';
+DECLARE b NAMESPACE 'https://www.w3schools.com/furniture';
+CREATE COMPUTE MODULE MF_Namespace_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+	
+    DECLARE inRef REFERENCE TO InputRoot.XMLNSC.Details;
+    DECLARE outRef REFERENCE TO OutputRoot;
+    
+    CREATE LASTCHILD OF OutputRoot.XMLNSC AS outRef NAME 'Details';
+    SET outRef.a.Article.(XMLNSC.NamespaceDecl)xmlns:a=a;
+   
+     
+     SET outRef.a:Article.a:Provider.a:Name = inRef.a:Article.a:Provider.a:Name;
+      SET outRef.b.Article.(XMLNSC.NamespaceDecl)xmlns:b=b;
+     SET outRef.b:Article.b:Product.b:Item = inRef.b:Article.b:Product.b:Item;
+     SET outRef.b:Article.b:Product.b:Quant =  inRef.b:Article.b:Product.b:Quant;
+     SET outRef.b:Article.b:Product.b:Price =   inRef.b:Article.b:Product.b:Price;
+--	     <Details>
+--	<a:Article xmlns:a="http://www.w3.org/TR/html4/">
+--	  <a:Provider>
+--	    <a:Name>Apples</a:Name>
+--	  </a:Provider>
+--	</a:Article>
+--	<b:Article xmlns:b="https://www.w3schools.com/furniture">
+--	  <b:Product>
+--	 </b:Item> African Coffee Table</b:Item>
+--	  <b:Quant>80</b:Quant>
+--	  <b:Price>120</b:Price>
+--	   </b:Product>
+--	</b:Article>
+--	</Details>
+    
+     RETURN TRUE;
+		
+	END;
+END MODULE;
