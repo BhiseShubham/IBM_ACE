@@ -1,0 +1,56 @@
+
+==============================================
+
+!Thu Nov 09 12:40:34 IST 2023
+
+Processing file App_GlobaCache\MF_Load.msgflow.
+Successfully added file App_GlobaCache\MF_Load.msgflow to BAR file.
+
+==============================================
+
+!Thu Nov 09 12:40:34 IST 2023
+
+Processing file App_GlobaCache\MF_Get.msgflow.
+Successfully added file App_GlobaCache\MF_Get.msgflow to BAR file.
+
+==============================================
+
+!Thu Nov 09 12:40:34 IST 2023
+
+Processing file App_GlobaCache\MF_Get_Compute.esql.
+Successfully added file App_GlobaCache\MF_Get_Compute.esql to BAR file.
+
+==============================================
+
+!Thu Nov 09 12:40:34 IST 2023
+
+Processing file App_GlobaCache\MF_Load_Compute.esql.
+Successfully added file App_GlobaCache\MF_Load_Compute.esql to BAR file.
+
+==============================================
+
+!Thu Nov 09 12:40:34 IST 2023
+
+Processing file App_GlobaCache\application.descriptor.
+Successfully added file App_GlobaCache\application.descriptor to BAR file.
+Elapsed time: 0 second(s).
+
+Successfully added file App_GlobaCache\application.descriptor to BAR file.
+
+==============================================
+
+!Thu Nov 09 12:40:34 IST 2023
+
+Processing file App_GlobaCache\application.descriptor.
+Successfully added file App_GlobaCache\application.descriptor to BAR file.
+Elapsed time: 0 second(s).
+
+Successfully added file App_GlobaCache\application.descriptor to BAR file.
+
+==============================================
+
+!Thu Nov 09 12:40:35 IST 2023
+
+Processing file GlobalCache\.classpath.
+Successfully added file GlobalCache\.classpath to BAR file.
+Elapsed time: 1.214 second(s).

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><Broker>
+<CompiledApplication>
+<ConfigurableProperty uri="startMode"/>
+</CompiledApplication>
+<CompiledMessageFlow name="MF_Load">
+<ConfigurableProperty uri="MF_Load#additionalInstances"/>
+<ConfigurableProperty uri="MF_Load#notificationThresholdMsgsPerSec"/>
+<ConfigurableProperty uri="MF_Load#maximumRateMsgsPerSec"/>
+<ConfigurableProperty uri="MF_Load#processingTimeoutSec"/>
+<ConfigurableProperty uri="MF_Load#processingTimeoutAction"/>
+<ConfigurableProperty uri="MF_Load#wlmPolicy"/>
+<ConfigurableProperty uri="MF_Load#commitCount"/>
+<ConfigurableProperty uri="MF_Load#commitInterval"/>
+<ConfigurableProperty uri="MF_Load#coordinatedTransaction"/>
+<ConfigurableProperty uri="MF_Load#consumerPolicySet"/>
+<ConfigurableProperty uri="MF_Load#providerPolicySet"/>
+<ConfigurableProperty uri="MF_Load#consumerPolicySetBindings"/>
+<ConfigurableProperty uri="MF_Load#providerPolicySetBindings"/>
+<ConfigurableProperty uri="MF_Load#securityProfileName"/>
+<ConfigurableProperty uri="MF_Load#monitoringProfile"/>
+<ConfigurableProperty uri="MF_Load#startMode"/>
+<ConfigurableProperty uri="MF_Load#startInstancesWhenFlowStarts"/>
+<ConfigurableProperty override="/Loaddata" uri="MF_Load#HTTP Input.URLSpecifier"/>
+<ConfigurableProperty uri="MF_Load#HTTP Input.useHTTPS"/>
+<ConfigurableProperty uri="MF_Load#HTTP Input.decompressInputMessage"/>
+<ConfigurableProperty uri="MF_Load#HTTP Input.timeoutForClient"/>
+<ConfigurableProperty uri="MF_Load#HTTP Input.faultFormat"/>
+<ConfigurableProperty uri="MF_Load#HTTP Input.validateMaster"/>
+<ConfigurableProperty uri="MF_Load#HTTP Input.securityProfileName"/>
+<ConfigurableProperty uri="MF_Load#HTTP Reply.validateMaster"/>
+<ConfigurableProperty uri="MF_Load#Compute.dataSource"/>
+<ConfigurableProperty uri="MF_Load#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="MF_Load#Compute.validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="MF_Get">
+<ConfigurableProperty uri="MF_Get#additionalInstances"/>
+<ConfigurableProperty uri="MF_Get#notificationThresholdMsgsPerSec"/>
+<ConfigurableProperty uri="MF_Get#maximumRateMsgsPerSec"/>
+<ConfigurableProperty uri="MF_Get#processingTimeoutSec"/>
+<ConfigurableProperty uri="MF_Get#processingTimeoutAction"/>
+<ConfigurableProperty uri="MF_Get#wlmPolicy"/>
+<ConfigurableProperty uri="MF_Get#commitCount"/>
+<ConfigurableProperty uri="MF_Get#commitInterval"/>
+<ConfigurableProperty uri="MF_Get#coordinatedTransaction"/>
+<ConfigurableProperty uri="MF_Get#consumerPolicySet"/>
+<ConfigurableProperty uri="MF_Get#providerPolicySet"/>
+<ConfigurableProperty uri="MF_Get#consumerPolicySetBindings"/>
+<ConfigurableProperty uri="MF_Get#providerPolicySetBindings"/>
+<ConfigurableProperty uri="MF_Get#securityProfileName"/>
+<ConfigurableProperty uri="MF_Get#monitoringProfile"/>
+<ConfigurableProperty uri="MF_Get#startMode"/>
+<ConfigurableProperty uri="MF_Get#startInstancesWhenFlowStarts"/>
+<ConfigurableProperty override="/GetData" uri="MF_Get#HTTP Input.URLSpecifier"/>
+<ConfigurableProperty uri="MF_Get#HTTP Input.useHTTPS"/>
+<ConfigurableProperty uri="MF_Get#HTTP Input.decompressInputMessage"/>
+<ConfigurableProperty uri="MF_Get#HTTP Input.timeoutForClient"/>
+<ConfigurableProperty uri="MF_Get#HTTP Input.faultFormat"/>
+<ConfigurableProperty uri="MF_Get#HTTP Input.validateMaster"/>
+<ConfigurableProperty uri="MF_Get#HTTP Input.securityProfileName"/>
+<ConfigurableProperty uri="MF_Get#HTTP Reply.validateMaster"/>
+<ConfigurableProperty uri="MF_Get#Compute.dataSource"/>
+<ConfigurableProperty uri="MF_Get#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="MF_Get#Compute.validateMaster"/>
+</CompiledMessageFlow>
+</Broker>

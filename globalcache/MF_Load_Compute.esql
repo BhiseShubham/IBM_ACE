@@ -1,0 +1,23 @@
+
+
+CREATE COMPUTE MODULE MF_Load_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE data BLOB;
+		SET data = ASBITSTREAM(InputRoot.XMLNSC CCSID InputRoot.Properties.CodedCharSetId ENCODING InputRoot.Properties.Encoding);
+		CALL globajava('mymap',data);
+		SET OutputRoot.XMLNSC.result = 'Succesfully Loaded';
+		
+	END;
+	    CREATE PROCEDURE globajava (IN A CHARACTER,IN data BLOB )
+		LANGUAGE JAVA
+		EXTERNAL NAME "com.gc.GlobalCache.loadcache" ;
+END MODULE;
