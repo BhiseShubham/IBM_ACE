@@ -1,0 +1,29 @@
+
+
+Importing file: C:\Users\Sreenivas Bandaru\IBM\ACET12\workspace\Soap_Calculator\CalculatorWSDLFile.wsdl
+
+
+The following is a list of WS-I warning messages found when importing:
+WS-I BP 1.1: (BP2118) The binding does not have the same list of operations as the CalculatorWSDLFile port type to which it refers., Line: 114, Column: 3
+WS-I BP 1.1: (BP2118) The binding does not have the same list of operations as the CalculatorWSDLFile port type to which it refers., Line: 114, Column: 3
+WS-I BP 1.1: (BP2118) The binding does not have the same list of operations as the CalculatorWSDLFile port type to which it refers., Line: 114, Column: 3
+
+
+The WSDL import will proceed with bindings CalculatorWSDLFileSOAP.
+Creating wsdl schema document for file:///C:/Users/Sreenivas Bandaru/IBM/ACET12/workspace/Soap_Calculator/CalculatorWSDLFile.wsdl.
+Parsing wsdl binding {http://www.example.org/CalculatorWSDLFile/}CalculatorWSDLFileSOAP.
+Parsing wsdl binding input Add.
+Parsing wsdl binding output Add.
+Processing doc style for operation Add.
+Populating WSDL schema CalculatorWSDLFile.xsd.
+Creating file CalculatorWSDLFile.xsd in the workspace.
+Creating file CalculatorWSDLFile_InlineSchema1.xsd in the workspace.
+Copying source WSDL CalculatorWSDLFile.wsdl to CalculatorWSDLFile.wsdl.
+
+Elapsed time processing this message definition file: 0.488 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+

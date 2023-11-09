@@ -1,0 +1,33 @@
+DECLARE ns NAMESPACE 'http://www.example.org/CalculatorWSDLFile/';
+
+
+
+
+CREATE COMPUTE MODULE Soap_Calculator_MF_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE Ref REFERENCE TO InputRoot.SOAP.Body;
+		SET OutputRoot.SOAP.Body.ns:AddResponse.out = Ref.ns:Add.Num1 + Ref.ns:Add.Num2;
+		SET OutputRoot.SOAP.Body.ns:DivisionResponse.out = Ref.ns:Division.Num1 / Ref.ns:Division.Num2;
+		SET OutputRoot.SOAP.Body.ns:MultiResponse.out = Ref.ns:Multi.Num1 * Ref.ns:Multi.Num2;
+		SET OutputRoot.SOAP.Body.ns:SubResponse.out = Ref.ns:Sub.Num1 - Ref.ns:Sub.Num2;
+		
+	
+	END;
+END MODULE;

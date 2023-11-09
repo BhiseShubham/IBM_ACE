@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="CalculatorWSDLFile" targetNamespace="http://www.example.org/CalculatorWSDLFile/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/CalculatorWSDLFile/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <generatedXSD location="CalculatorWSDLFile_InlineSchema1.xsd"/>
+        <binding hasEncoding="false" imported="true" name="CalculatorWSDLFileSOAP" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    
+          <xsd:schema targetNamespace="http://www.example.org/CalculatorWSDLFile/" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+<xsd:include schemaLocation="CalculatorWSDLFile_InlineSchema1.xsd"/>
+    </xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="AddRequest">
+    <wsdl:part element="tns:Add" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="AddResponse">
+    <wsdl:part element="tns:AddResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SubRequest">
+  	<wsdl:part element="tns:Sub" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="SubResponse">
+  	<wsdl:part element="tns:SubResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="MultiRequest">
+  	<wsdl:part element="tns:Multi" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="MultiResponse">
+  	<wsdl:part element="tns:MultiResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="DivisionRequest">
+  	<wsdl:part element="tns:Division" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="DivisionResponse">
+  	<wsdl:part element="tns:DivisionResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="CalculatorWSDLFile">
+    <wsdl:operation name="Add">
+      <wsdl:input message="tns:AddRequest"/>
+      <wsdl:output message="tns:AddResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="Sub">
+    	<wsdl:input message="tns:SubRequest"/>
+    	<wsdl:output message="tns:SubResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="Multi">
+    	<wsdl:input message="tns:MultiRequest"/>
+    	<wsdl:output message="tns:MultiResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="Division">
+    	<wsdl:input message="tns:DivisionRequest"/>
+    	<wsdl:output message="tns:DivisionResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CalculatorWSDLFileSOAP" type="tns:CalculatorWSDLFile">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="http://www.example.org/CalculatorWSDLFile/Add"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+     <wsdl:operation name="Sub">
+      <soap:operation soapAction="http://www.example.org/CalculatorWSDLFile/Sub"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+     <wsdl:operation name="Multi">
+      <soap:operation soapAction="http://www.example.org/CalculatorWSDLFile/Multi"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+     <wsdl:operation name="Division">
+      <soap:operation soapAction="http://www.example.org/CalculatorWSDLFile/Division"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CalculatorWSDLFile">
+    <wsdl:port binding="tns:CalculatorWSDLFileSOAP" name="CalculatorWSDLFileSOAP">
+      <soap:address location="http://192.168.1.160:7800/Add/Sub/Multi/Division"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
