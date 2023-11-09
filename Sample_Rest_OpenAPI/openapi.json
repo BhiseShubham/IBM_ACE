@@ -1,0 +1,51 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Sample_Rest_OpenAPI",
+    "version": "1.0.0",
+    "description": "Sample_Rest_OpenAPI"
+  },
+  "servers": [
+    {
+      "url": "/sample_rest_openapi/v1"
+    }
+  ],
+  "paths": {
+    "/Open_Api": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/Insert_OpenApi": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/Update": {
+      "put": {
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/Delete": {
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      }
+    }
+  }
+}
