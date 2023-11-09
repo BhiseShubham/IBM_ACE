@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" 
+xmlns:xmi="http://www.omg.org/XMI" xmlns:com_ibm_connector_kafka_ComIbmOutput.msgnode="com/ibm/connector/kafka/ComIbmOutput.msgnode" xmlns:com_ibm_connector_kafka_ComIbmEventInput.msgnode="com/ibm/connector/kafka/ComIbmEventInput.msgnode" xmlns:ComIbmCompute.msgnode="ComIbmCompute.msgnode" xmlns:ComIbmMQOutput.msgnode="ComIbmMQOutput.msgnode" xmlns:ComIbmMQInput.msgnode="ComIbmMQInput.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" 
+xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="MF_Pub_Sub.msgflow" 
+nsPrefix="MF_Pub_Sub.msgflow">
+<eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1" nodeLayoutStyle="SQUARE">
+<eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+<translation xmi:type="utility:TranslatableString" key="MF_Pub_Sub" bundleName="MF_Pub_Sub" pluginId="flowAPIgenerated"/>
+<colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/flowAPIgenerated/icons/full/obj16/MF_Pub_Sub.gif"/>
+<colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/flowAPIgenerated/icons/full/obj30/MF_Pub_Sub.gif"/>
+<composition>
+<nodes xmi:type="com_ibm_connector_kafka_ComIbmOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="325,146" connectorName="Kafka" topicName="Topic1" bootstrapServers="localhost:9092" clientId="org.apache.kafka" useClientIdSuffix="true" acks="all" timeout="60" propertiesFilePath="" securityIdentity="" securityProtocol="PLAINTEXT" sslProtocol="TLSv1.2" validateMaster="inherit" validateFailureAction="exception" policyUrl="">
+<translation xmi:type="utility:ConstantString" string="KafkaProducer"/>
+</nodes>
+<nodes xmi:type="com_ibm_connector_kafka_ComIbmEventInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="81,56" connectorName="Kafka" topicName="Topic2" bootstrapServers="localhost:9092" groupId="org.apache.kafka" initialOffset="latest" enableAutoCommit="true" useSyncCommit="true" clientId="" useClientIdSuffix="true" connectionTimeout="15" sessionTimeout="10" receiveBatchSize="1" propertiesFilePath="" securityIdentity="" securityProtocol="PLAINTEXT" sslProtocol="TLSv1.2" messageDomainProperty="XMLNSC" messageSetProperty="" messageTypeProperty="" messageFormatProperty="" validateTiming="deferred" parserXmlnscBuildTreeUsingXMLSchema="false" parserXmlnscUseForXmlnsDomain="false" parserXmlnscMixedContentRetainMode="none" parserXmlnscCommentsRetainMode="none" parserXmlnscProcessingInstructionsRetainMode="none" validateMaster="none" validateFailureAction="exception" componentLevel="flow" additionalInstances="0" policyUrl="">
+<translation xmi:type="utility:ConstantString" string="KafkaConsumer"/>
+</nodes>
+<nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="195,55" computeExpression="esql://routine/#MF_Pub_Sub_Compute.Main">
+<translation xmi:type="utility:ConstantString" string="Compute"/>
+</nodes>
+<nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="203,144" computeExpression="esql://routine/#MF_Pub_Sub_Compute1.Main">
+<translation xmi:type="utility:ConstantString" string="Compute1"/>
+</nodes>
+<nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="324,56" queueName="IN" destinationQueueManagerName="QMGR">
+<translation xmi:type="utility:ConstantString" string="MQ Output"/>
+</nodes>
+<nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="91,144" queueName="IN" destinationQueueManagerName="QMGR">
+<translation xmi:type="utility:ConstantString" string="MQ Input"/>
+</nodes>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_5" sourceNode="FCMComposite_1_3" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_6" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_4" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+</composition>
+<propertyOrganizer>
+</propertyOrganizer>
+<stickyBoard/>
+</eClassifiers>
+</ecore:EPackage>

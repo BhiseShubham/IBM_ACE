@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><Broker>
+<CompiledApplication>
+<ConfigurableProperty uri="startMode"/>
+</CompiledApplication>
+<CompiledMessageFlow name="MF_Pub_Sub">
+<ConfigurableProperty uri="MF_Pub_Sub#additionalInstances"/>
+<ConfigurableProperty uri="MF_Pub_Sub#notificationThresholdMsgsPerSec"/>
+<ConfigurableProperty uri="MF_Pub_Sub#maximumRateMsgsPerSec"/>
+<ConfigurableProperty uri="MF_Pub_Sub#processingTimeoutSec"/>
+<ConfigurableProperty uri="MF_Pub_Sub#processingTimeoutAction"/>
+<ConfigurableProperty uri="MF_Pub_Sub#wlmPolicy"/>
+<ConfigurableProperty uri="MF_Pub_Sub#commitCount"/>
+<ConfigurableProperty uri="MF_Pub_Sub#commitInterval"/>
+<ConfigurableProperty uri="MF_Pub_Sub#coordinatedTransaction"/>
+<ConfigurableProperty uri="MF_Pub_Sub#consumerPolicySet"/>
+<ConfigurableProperty uri="MF_Pub_Sub#providerPolicySet"/>
+<ConfigurableProperty uri="MF_Pub_Sub#consumerPolicySetBindings"/>
+<ConfigurableProperty uri="MF_Pub_Sub#providerPolicySetBindings"/>
+<ConfigurableProperty uri="MF_Pub_Sub#securityProfileName"/>
+<ConfigurableProperty uri="MF_Pub_Sub#monitoringProfile"/>
+<ConfigurableProperty uri="MF_Pub_Sub#startMode"/>
+<ConfigurableProperty uri="MF_Pub_Sub#startInstancesWhenFlowStarts"/>
+<ConfigurableProperty override="Topic1" uri="MF_Pub_Sub#KafkaProducer.topicName"/>
+<ConfigurableProperty override="localhost:9092" uri="MF_Pub_Sub#KafkaProducer.bootstrapServers"/>
+<ConfigurableProperty override="org.apache.kafka" uri="MF_Pub_Sub#KafkaProducer.clientId"/>
+<ConfigurableProperty override="true" uri="MF_Pub_Sub#KafkaProducer.useClientIdSuffix"/>
+<ConfigurableProperty override="all" uri="MF_Pub_Sub#KafkaProducer.acks"/>
+<ConfigurableProperty override="60" uri="MF_Pub_Sub#KafkaProducer.timeout"/>
+<ConfigurableProperty uri="MF_Pub_Sub#KafkaProducer.propertiesFilePath"/>
+<ConfigurableProperty uri="MF_Pub_Sub#KafkaProducer.securityIdentity"/>
+<ConfigurableProperty override="PLAINTEXT" uri="MF_Pub_Sub#KafkaProducer.securityProtocol"/>
+<ConfigurableProperty override="TLSv1.2" uri="MF_Pub_Sub#KafkaProducer.sslProtocol"/>
+<ConfigurableProperty override="inherit" uri="MF_Pub_Sub#KafkaProducer.validateMaster"/>
+<ConfigurableProperty uri="MF_Pub_Sub#KafkaProducer.policyUrl"/>
+<ConfigurableProperty override="Topic2" uri="MF_Pub_Sub#KafkaConsumer.topicName"/>
+<ConfigurableProperty override="localhost:9092" uri="MF_Pub_Sub#KafkaConsumer.bootstrapServers"/>
+<ConfigurableProperty override="org.apache.kafka" uri="MF_Pub_Sub#KafkaConsumer.groupId"/>
+<ConfigurableProperty override="latest" uri="MF_Pub_Sub#KafkaConsumer.initialOffset"/>
+<ConfigurableProperty override="true" uri="MF_Pub_Sub#KafkaConsumer.enableAutoCommit"/>
+<ConfigurableProperty override="true" uri="MF_Pub_Sub#KafkaConsumer.useSyncCommit"/>
+<ConfigurableProperty uri="MF_Pub_Sub#KafkaConsumer.clientId"/>
+<ConfigurableProperty override="true" uri="MF_Pub_Sub#KafkaConsumer.useClientIdSuffix"/>
+<ConfigurableProperty override="15" uri="MF_Pub_Sub#KafkaConsumer.connectionTimeout"/>
+<ConfigurableProperty override="10" uri="MF_Pub_Sub#KafkaConsumer.sessionTimeout"/>
+<ConfigurableProperty override="1" uri="MF_Pub_Sub#KafkaConsumer.receiveBatchSize"/>
+<ConfigurableProperty uri="MF_Pub_Sub#KafkaConsumer.propertiesFilePath"/>
+<ConfigurableProperty uri="MF_Pub_Sub#KafkaConsumer.securityIdentity"/>
+<ConfigurableProperty override="PLAINTEXT" uri="MF_Pub_Sub#KafkaConsumer.securityProtocol"/>
+<ConfigurableProperty override="TLSv1.2" uri="MF_Pub_Sub#KafkaConsumer.sslProtocol"/>
+<ConfigurableProperty override="none" uri="MF_Pub_Sub#KafkaConsumer.validateMaster"/>
+<ConfigurableProperty override="flow" uri="MF_Pub_Sub#KafkaConsumer.componentLevel"/>
+<ConfigurableProperty override="0" uri="MF_Pub_Sub#KafkaConsumer.additionalInstances"/>
+<ConfigurableProperty uri="MF_Pub_Sub#KafkaConsumer.policyUrl"/>
+<ConfigurableProperty uri="MF_Pub_Sub#Compute.dataSource"/>
+<ConfigurableProperty uri="MF_Pub_Sub#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="MF_Pub_Sub#Compute.validateMaster"/>
+<ConfigurableProperty uri="MF_Pub_Sub#Compute1.dataSource"/>
+<ConfigurableProperty uri="MF_Pub_Sub#Compute1.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="MF_Pub_Sub#Compute1.validateMaster"/>
+<ConfigurableProperty override="IN" uri="MF_Pub_Sub#MQ Output.queueName"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.connection"/>
+<ConfigurableProperty override="QMGR" uri="MF_Pub_Sub#MQ Output.destinationQueueManagerName"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.queueManagerHostname"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.listenerPortNumber"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.channelName"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.securityIdentity"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.useSSL"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.SSLPeerName"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.SSLCipherSpec"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.SSLCertificateLabel"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.queueManagerName"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.replyToQMgr"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.replyToQ"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.validateMaster"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.securityProfileName"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.policyUrl"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.AddRequestToGroup"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.GroupRequestFolderName"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Output.GroupRequestTimeout"/>
+<ConfigurableProperty override="IN" uri="MF_Pub_Sub#MQ Input.queueName"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Input.connection"/>
+<ConfigurableProperty override="QMGR" uri="MF_Pub_Sub#MQ Input.destinationQueueManagerName"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Input.queueManagerHostname"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Input.listenerPortNumber"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Input.channelName"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Input.securityIdentity"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Input.useSSL"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Input.SSLPeerName"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Input.SSLCipherSpec"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Input.SSLCertificateLabel"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Input.serializationToken"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Input.topicProperty"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Input.resetBrowseTimeout"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Input.validateMaster"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Input.securityProfileName"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Input.componentLevel"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Input.additionalInstances"/>
+<ConfigurableProperty uri="MF_Pub_Sub#MQ Input.policyUrl"/>
+</CompiledMessageFlow>
+</Broker>
