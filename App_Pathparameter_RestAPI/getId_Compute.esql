@@ -1,0 +1,21 @@
+
+
+CREATE COMPUTE MODULE getId_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE inref REFERENCE TO InputLocalEnvironment.REST.Input.Parameters;
+		DECLARE id INTEGER;
+		--DECLARE stdId CHARACTER;
+		--SET stdId=CAST(id as CHARACTER);
+		SET id=inref.id;
+		DECLARE query CHARACTER 'select * from student where id=?';
+		SET OutputRoot.XMLNSC.Res=PASSTHRU(query VALUES(id));
+	END;
+END MODULE;
