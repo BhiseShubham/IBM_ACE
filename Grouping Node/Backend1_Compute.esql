@@ -1,0 +1,31 @@
+
+
+CREATE COMPUTE MODULE Backend1_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		IF InputRoot.XMLNSC.CustomerDetails.Aadhar=860 THEN
+    SET OutputRoot.XMLNSC.CustomerDetails.Aadhar.Name='Shubham';
+    SET OutputRoot.XMLNSC.CustomerDetails.Aadhar.Address='Maharashtra';
+        SET OutputRoot.XMLNSC.CustomerDetails.Aadhar.City='Nashik';
+            SET OutputRoot.XMLNSC.CustomerDetails.Aadhar.STDCOE=424001;
+                SET OutputRoot.XMLNSC.CustomerDetails.Aadhar.DOB='22/11/1997';
+    
+		END IF;
+	END;
+END MODULE;
