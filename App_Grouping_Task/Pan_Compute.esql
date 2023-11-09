@@ -1,0 +1,27 @@
+
+
+CREATE COMPUTE MODULE Pan_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE inRef REFERENCE TO InputRoot.JSON.Data.PancardNo;
+		IF inRef='1ABC789' THEN
+			SET OutputRoot.JSON.Data.PanDetails.Name='Shubham';
+			SET OutputRoot.JSON.Data.PanDetails.ID=860;
+			SET OutputRoot.JSON.Data.PanDetails.Aaddress='Bandra';
+			SET OutputRoot.JSON.Data.PanDetails.City='Mumbai';
+			
+		
+		END IF;
+	
+	END;
+END MODULE;
+
+	

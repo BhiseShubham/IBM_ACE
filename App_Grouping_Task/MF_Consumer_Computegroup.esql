@@ -1,0 +1,34 @@
+
+
+CREATE COMPUTE MODULE MF_Consumer_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN FALSE;
+	END;
+
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+	
+			
+			DECLARE inRef REFERENCE TO InputRoot.JSON.Data.CustomerDetailsVerify.Item[>];
+			WHILE LASTMOVE(inRef) DO
+				IF FIELDNAME(inRef.[>])='Aadhar_Number_Verify' THEN
+				SET OutputRoot.JSON.Data.AadharNo = inRef.Aadhar_Number_Verify.Number;
+				
+				PROPAGATE TO TERMINAL 'out';
+					
+				ELSEIF FIELDNAME(inRef.[>])='PAN_Number_Verify'  THEN
+				
+				PROPAGATE TO TERMINAL 'out1';
+					
+				SET OutputRoot.JSON.Data.PancardNo	= inRef.PAN_Number_Verify.Number;
+				
+					
+				END IF;
+				MOVE inRef NEXTSIBLING;
+			END WHILE;
+	END;
+END MODULE;

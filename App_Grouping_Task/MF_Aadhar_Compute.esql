@@ -1,0 +1,34 @@
+
+
+CREATE COMPUTE MODULE MF_Aadhar_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE inRef REFERENCE TO InputRoot.JSON.Data.AadharNo;
+		IF inRef=789456123 THEN
+			SET OutputRoot.JSON.Data.AadharDetails.Name='Shubham';
+			SET OutputRoot.JSON.Data.AadharDetails.ID=860;
+			SET OutputRoot.JSON.Data.AadharDetails.Aaddress='Bandra';
+			SET OutputRoot.JSON.Data.AadharDetails.City='Mumbai';
+			
+		
+		END IF;
+	
+		
+	END;
+END MODULE;
