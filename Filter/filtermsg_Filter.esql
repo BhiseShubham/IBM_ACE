@@ -1,0 +1,16 @@
+
+
+CREATE FILTER MODULE filtermsg_Filter
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		DECLARE result REFERENCE TO Root.XMLNSC;
+		IF result.data ='Eidiko' THEN
+			RETURN TRUE;
+		ELSEIF result.data ='IBM'THEN
+			RETURN FALSE;
+		ELSE 
+		RETURN UNKNOWN;	
+		END IF;
+	END;
+
+END MODULE;
