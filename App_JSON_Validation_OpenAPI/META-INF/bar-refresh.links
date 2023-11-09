@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy:Deploy xmlns:deploy="http://www.ibm.com/xmlns/prod/wmb/deploy/6.0.0" overrideConfigurableProperties="false" includeESQL="true">
+  <deployables>
+    <deployable deployed="true" barResourceTimeStamp="1697784058795" workspaceResource="/App_JSON_Validation/gen/App_JSON_Validation.msgflow">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file App_JSON_Validation\gen\App_JSON_Validation.msgflow&#xA;Successfully added file App_JSON_Validation\gen\App_JSON_Validation.msgflow to archive file&#xA;Elapsed time: 0.119 second(s).&#xA;" severity="0"/>
+      <barEntry name="gen.App_JSON_Validation.cmf"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1697784058486" workspaceResource="/App_JSON_Validation/openapi.json">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file App_JSON_Validation\openapi.json.&#xA;Successfully added file App_JSON_Validation\openapi.json to BAR file.&#xA;Elapsed time: 0 second(s).&#xA;&#xA;Successfully added file App_JSON_Validation\openapi.json to BAR file.&#xA;" severity="0"/>
+      <barEntry name="openapi.json"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1697782488424" workspaceResource="/App_JSON_Validation/postValidation.subflow">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file App_JSON_Validation\postValidation.subflow.&#xA;Warning: The ESQL code can only be in-lined into the compiled message flows (CMF).&#xA;The dependent ESQL files will be included into the BAR file since deployable&#xA;subflows are not compiled and therefore can not contain in-lined ESQL.&#xA;&#xA;Successfully added file App_JSON_Validation\postValidation.subflow to BAR file.&#xA;" severity="0"/>
+      <barEntry name="postValidation.subflow"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1697782505187" workspaceResource="/App_JSON_Validation/postValidation_Compute.esql">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file App_JSON_Validation\postValidation_Compute.esql.&#xA;Successfully added file App_JSON_Validation\postValidation_Compute.esql to BAR file.&#xA;" severity="0"/>
+      <barEntry name="postValidation_Compute.esql"/>
+    </deployable>
+    <deployable deployed="true" barResourceTimeStamp="1697784058795" workspaceResource="/App_JSON_Validation/restapi.descriptor">
+      <deployableStatus code="0" key="DEPLOYABLE_LAST_COMPILE_STATUS" message="&#xA;Processing file App_JSON_Validation\restapi.descriptor.&#xA;Successfully added file App_JSON_Validation\restapi.descriptor to BAR file.&#xA;Elapsed time: 0.001 second(s).&#xA;&#xA;Successfully added file App_JSON_Validation\restapi.descriptor to BAR file.&#xA;" severity="0"/>
+      <barEntry name="restapi.descriptor"/>
+    </deployable>
+  </deployables>
+</deploy:Deploy>

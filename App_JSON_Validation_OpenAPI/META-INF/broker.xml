@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><Broker>
+<CompiledApplication>
+<ConfigurableProperty uri="startMode"/>
+</CompiledApplication>
+<CompiledMessageFlow name="gen.App_JSON_Validation">
+<ConfigurableProperty override="3" uri="gen.App_JSON_Validation#additionalInstances"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#commitCount"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#commitInterval"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#coordinatedTransaction"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#consumerPolicySet"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#providerPolicySet"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#consumerPolicySetBindings"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#providerPolicySetBindings"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#securityProfileName"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#monitoringProfile"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#startMode"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#startInstancesWhenFlowStarts"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#maximumRateMsgsPerSec"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#wlmPolicy"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#notificationThresholdMsgsPerSec"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#processingTimeoutSec"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#processingTimeoutAction"/>
+<ConfigurableProperty override="/app_json_validation/v1*" uri="gen.App_JSON_Validation#HTTP Input.URLSpecifier"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#HTTP Input.decompressInputMessage"/>
+<ConfigurableProperty override="JSON" uri="gen.App_JSON_Validation#HTTP Input.faultFormat"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#HTTP Input.securityProfileName"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#HTTP Input.timeoutForClient"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#HTTP Input.useHTTPS"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#HTTP Input.validateMaster"/>
+<ConfigurableProperty uri="gen.App_JSON_Validation#HTTP Reply.validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="postValidation" type="subflow">
+<ConfigurableProperty uri="postValidation#Compute.dataSource"/>
+<ConfigurableProperty uri="postValidation#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="postValidation#Compute.validateMaster"/>
+</CompiledMessageFlow>
+</Broker>

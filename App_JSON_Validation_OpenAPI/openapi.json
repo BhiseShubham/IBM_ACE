@@ -1,0 +1,53 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "App_JSON_Validation",
+    "version": "1.0.0",
+    "description": "App_JSON_Validation"
+  },
+  "servers": [
+    {
+      "url": "/app_json_validation/v1"
+    }
+  ],
+  "paths": {
+    "/Validation": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Test": {
+                    "example": {
+                      "$schema": "http://json-schema.org/draft-04/schema#",
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "age": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "age"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
