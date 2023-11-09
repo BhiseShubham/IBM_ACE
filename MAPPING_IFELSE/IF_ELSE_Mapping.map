@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <inlinedXMLSchema><![CDATA[<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+    <xsd:element name="Student" nillable="true"> 
+    <xsd:complexType> 
+      <xsd:sequence> 
+        <xsd:element name="ID" nillable="true" type="xsd:string"/> 
+        <xsd:element name="NAME" nillable="true" type="xsd:string"/> 
+        <xsd:element name="PLACE" nillable="true" type="xsd:string"/> 
+      </xsd:sequence> 
+    </xsd:complexType> 
+  </xsd:element> 
+</xsd:schema>]]></inlinedXMLSchema>
+    <input path="/Sample.xsd" var="var2"/>
+    <input inlinedXMLSchema="true" path="../schema_0.xsd" var="var1"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="out" uri="http://www.ibm.com/iib/msl/json"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="IF_ELSE_Mapping">
+        <input path="$var2/mb:msg(Student,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_Student"/>
+        <output namespace="http://www.ibm.com/iib/msl/json" path="$var/mb:msg(JSON,assembly,JSON,Properties)" var="ComIbmMessageAssembly_JSON">
+            <cast castType="userDefined" path="$ComIbmMessageAssembly_JSON/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}JSONObject" ref="var"/>
+            <cast castType="userDefined" path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)/any" qualifier="Student" ref="var1"/>
+        </output>
+        <condition>
+            <if>
+                <input path="$ComIbmMessageAssembly_Student/Student" var="Student"/>
+                <output path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)/Student" var="Student1"/>
+                <test lang="xpath">$Student/NAME = 'Shubham'</test>
+                <move>
+                    <input path="$Student/ID" var="ID"/>
+                    <output path="$Student1/ID"/>
+                </move>
+                <move>
+                    <input path="$Student/NAME" var="NAME"/>
+                    <output path="$Student1/NAME"/>
+                </move>
+                <move>
+                    <input path="$Student/PLACE" var="PLACE"/>
+                    <output path="$Student1/PLACE"/>
+                </move>
+            </if>
+            <else>
+                <input path="$ComIbmMessageAssembly_Student/Student"/>
+                <output path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)/Student"/>
+                <move>
+                    <input path="NAME" var="NAME1"/>
+                    <output path="NAME"/>
+                </move>
+            </else>
+        </condition>
+    </mappingDeclaration>
+</mappingRoot>
