@@ -1,0 +1,38 @@
+
+
+CREATE COMPUTE MODULE HttpInput_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		 CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		DECLARE processingCD,serviceCallRef CHARACTER;
+	
+		
+		SET processingCD = InputRoot.JSON.Data.KnowYourCustomer.header.processingCode;
+		SET serviceCallRef = InputRoot.JSON.Data.KnowYourCustomer.header.serviceCall ;
+		
+		SET OutputRoot.MQRFH2.usr.Variable = InputLocalEnvironment.Destination.HTTP.RequestIdentifier;
+		
+		IF processingCD = '292000' AND serviceCallRef ='KYC' THEN
+		
+		SET OutputRoot.JSON.Data.KnowYourCustomer = InputRoot.JSON.Data.KnowYourCustomer;
+        SET OutputLocalEnvironment.Destination.MQ.DestinationData[1].queueName='MQOUT';
+        
+        
+		ELSEIF processingCD =292001  AND serviceCallRef ='ACCINFO' THEN
+		DECLARE Ref REFERENCE TO InputLocalEnvironment.Destination.HTTP.RequestIdentifier;
+		
+		SET OutputLocalEnvironment.Destination.MQ.DestinationData[1].queueName='';
+		ELSE
+			
+		END IF;
+	END;
+END MODULE;
+
+
