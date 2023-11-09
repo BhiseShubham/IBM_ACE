@@ -1,0 +1,98 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "Sample_Rest_Service",
+    "version" : "1.0.0",
+    "description" : "Sample_Rest_Service"
+  },
+  "paths" : {
+    "/insertstudent" : {
+      "post" : {
+        "operationId" : "postInsertstudent",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful."
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "Insert a insertstudent",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "type" : "string"
+          },
+          "description" : "The request body for the operation",
+          "required" : true
+        } ]
+      }
+    },
+    "/Get" : {
+      "get" : {
+        "operationId" : "getGet",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/Student"
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Retrieve Get"
+      }
+    },
+    "/Delete" : {
+      "delete" : {
+        "operationId" : "deleteDelete",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/Student"
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Remove from Delete"
+      }
+    },
+    "/Update" : {
+      "put" : {
+        "operationId" : "putUpdate",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/Student"
+            }
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "Update Update",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/Student"
+          },
+          "description" : "The request body for the operation",
+          "required" : true
+        } ]
+      }
+    }
+  },
+  "basePath" : "/sample_rest_service/v1",
+  "definitions" : {
+    "Student" : {
+      "type" : "object",
+      "properties" : {
+        "element1" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}
